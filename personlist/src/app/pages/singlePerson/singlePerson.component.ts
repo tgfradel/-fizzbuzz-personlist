@@ -35,7 +35,6 @@ export class SinglePersonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    document.title = this.title;
     this.getSinglePerson(this.person.id);
   }
 

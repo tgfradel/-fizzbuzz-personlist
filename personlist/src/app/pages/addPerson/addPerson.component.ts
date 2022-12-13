@@ -35,9 +35,8 @@ export class AddPersonComponent implements OnInit {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private route: Router
-  ) {
-    document.title = this.title;
-  }
+  ) {}
+
   ngOnInit(): void {}
 
   createPerson() {

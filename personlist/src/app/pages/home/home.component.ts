@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    document.title = 'Home';
     this.loading = true;
     this.personServices.getPersons().subscribe({
       next: (resp: Array<Person>) => {
