@@ -1,0 +1,35 @@
+<div>
+  <navigation-root [title]="title"></navigation-root><br />
+  <form
+    [formGroup]="checkoutForm"
+    (ngSubmit)="createPerson()"
+    id="create_person_form"
+  >
+    <div>
+      <label for="firstname">Firstname</label><br />
+      <input type="text" id="firstname" formControlName="firstname" />
+    </div>
+    <br />
+    <div>
+      <label for="lastname">Lastname</label><br />
+      <input type="text" id="lastname" formControlName="lastname" />
+    </div>
+    <br />
+    <div>
+      <label for="email">Email</label><br />
+      <input type="email" id="email" formControlName="email" s />
+    </div>
+    <br />
+    <div *ngIf="creating; else nCreating" id="person_creating">
+      <strong>Creating...</strong>
+    </div>
+    <ng-template #nCreating
+      ><button type="submit" id="create_person_button">Add</button></ng-template
+    >
+    <div *ngIf="creatingError">
+      <span style="color: red" id="person_creating_error"
+        >Error on Creating</span
+      >
+    </div>
+  </form>
+</div>

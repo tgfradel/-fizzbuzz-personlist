@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "firstname": "Guiro",
+    "lastname": "Tetsa",
+    "email": "guiro.tetsa@gmail.com"
+  },
+  {
+    "id": 2,
+    "firstname": "Lina",
+    "lastname": "Wagner",
+    "email": "Lina.Wagner@hotmail.de"
+  },
+  {
+    "id": 3,
+    "firstname": "Peter",
+    "lastname": "Alves",
+    "email": "p.a@outlook.de"
+  },
+  {
+    "id": 4,
+    "firstname": "Joe",
+    "lastname": "Tedon",
+    "email": "jtedon@yahoo.com"
+  },
+  {
+    "id": 5,
+    "firstname": "Jasmin",
+    "lastname": "Haller",
+    "email": "jh002@gmail.de"
+  }
+]

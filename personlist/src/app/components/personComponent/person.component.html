@@ -1,0 +1,29 @@
+<div id="person_component" *ngIf="person">
+  <div>
+    <div style="margin-bottom: 8px">
+      <a
+        [routerLink]="'/single-person/' + person.id"
+        class="link_to_single_person"
+        ><strong id="person_fullname"
+          >{{ person.firstname }} {{ person.lastname }}</strong
+        ></a
+      >
+    </div>
+    <div>
+      <a [routerLink]="'/update-person/' + person.id" id="link_to_edit_person"
+        ><button>Edit</button></a
+      >
+      <button *ngIf="deleting; else nDeleting" disabled id="person_deleting">
+        Deleting...
+      </button>
+      <ng-template #nDeleting>
+        <button id="button_to_delete_person" (click)="deletePerson(person.id)">
+          Delete
+        </button></ng-template
+      >
+    </div>
+    <div *ngIf="deletingError" class="error-card" style="color: red">
+      Error on Deleting!
+    </div>
+  </div>
+</div>

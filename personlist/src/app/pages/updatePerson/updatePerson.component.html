@@ -1,0 +1,53 @@
+<div>
+  <navigation-root [title]="title"></navigation-root>
+  <br />
+  <div *ngIf="loading; else nLoading" id="person_loading">
+    <span>Loading...</span>
+  </div>
+  <ng-template #nLoading>
+    <div *ngIf="loadingError; else noLoadingError" id="person_loading_error">
+      <strong style="color: red">Error on loading</strong><br /><br />
+      <button (click)="ngOnInit()">Reload</button>
+    </div>
+    <ng-template #noLoadingError
+      ><form [formGroup]="checkoutForm" (ngSubmit)="updatePerson()" id="person_update_form">
+        <div>
+          <label for="firstname">Firstname</label><br />
+          <input
+            type="text"
+            id="firstname"
+            formControlName="firstname"
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <label for="lastname">Lastname</label><br />
+          <input
+            type="text"
+            id="lastname"
+            formControlName="lastname"
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <label for="email">Email</label><br />
+          <input type="email" id="email" formControlName="email" required />
+        </div>
+        <br />
+        <div *ngIf="updating; else nUpdating" id="person_updating">
+          <span>Updating...</span>
+        </div>
+        <ng-template #nUpdating
+          ><button type="submit" id="person_update_button">
+            Update
+          </button></ng-template
+        >
+        <div *ngIf="updatingError" id="person_updating_error">
+          <span style="color: red">Error on Updating!</span>
+        </div>
+      </form></ng-template
+    ></ng-template
+  >
+</div>

@@ -1,0 +1,56 @@
+<div>
+  <navigation-root [title]="title"></navigation-root>
+  <br />
+  <div *ngIf="loading; else nLoading" id="single_person_loading">
+    <strong>Loading...</strong>
+  </div>
+  <ng-template #nLoading>
+    <div id="single_person_loaded">
+      <div
+        *ngIf="loadingError; else nLoadingError"
+        id="single_person_loading_error"
+      >
+        <strong style="color: red">Error on loading</strong><br /><br />
+        <button (click)="ngOnInit()" id="reload_button">Reload</button>
+      </div>
+      <ng-template #nLoadingError>
+        <div id="single_person_loading_success">
+          <div>
+            <div>Id:{{ person.id }}</div>
+            <div>Firstname:{{ person.firstname }}</div>
+            <div>Lastname:{{ person.lastname }}</div>
+            <div>Email:{{ person.email }}</div>
+          </div>
+          <br />
+          <div>
+            <a [routerLink]="'/update-person/' + person.id"
+              ><button>Edit</button></a
+            >
+            <button
+              *ngIf="deleting; else nDeleting"
+              disabled
+              id="single_person_deleting"
+            >
+              Deleting...
+            </button>
+            <ng-template #nDeleting
+              ><button
+                (click)="deletePerson(person.id)"
+                id="single_person_delete_button"
+              >
+                Delete
+              </button></ng-template
+            >
+          </div>
+          <div
+            *ngIf="deletingError"
+            style="color: red"
+            id="single_person_deleting_error"
+          >
+            Error on Deleting!
+          </div>
+        </div></ng-template
+      >
+    </div></ng-template
+  >
+</div>

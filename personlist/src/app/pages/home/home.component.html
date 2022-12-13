@@ -1,0 +1,30 @@
+<div>
+  <navigation-root [title]="title"></navigation-root>
+  <br />
+  <div id="persons_is_loading" *ngIf="loading; else loaded">
+    <strong>Loading...</strong>
+  </div>
+  <ng-template #loaded>
+    <div id="persons_is_loaded">
+      <div
+        *ngIf="loadingError; else noLoadingError"
+        id="persons_is_loadingError"
+      >
+        <strong style="color: red">Error on loading</strong><br /><br />
+        <button (click)="ngOnInit()">Reload</button>
+      </div>
+      <ng-template #noLoadingError>
+        <div id="persons_is_loadingSuccess">
+          <ul *ngFor="let person of persons; index as i">
+            <li>
+              <person-root
+                [id]="'person_item_' + person.id"
+                [person]="person"
+                (removeOneFromPersons)="removeOneFromPersons($event)"
+              ></person-root>
+            </li>
+          </ul>
+        </div>
+      </ng-template></div
+  ></ng-template>
+</div>
