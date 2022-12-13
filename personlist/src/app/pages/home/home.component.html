@@ -15,16 +15,20 @@
       </div>
       <ng-template #noLoadingError>
         <div id="persons_is_loadingSuccess">
-          <ul *ngFor="let person of persons; index as i">
-            <li>
-              <person-root
-                [id]="'person_item_' + person.id"
-                [person]="person"
-                (removeOneFromPersons)="removeOneFromPersons($event)"
-              ></person-root>
-            </li>
-          </ul>
+          <div *ngIf="persons.length > 0; else listIsEmpty">
+            <ul *ngFor="let person of persons; index as i">
+              <li>
+                <person-root
+                  [id]="'person_item_' + person.id"
+                  [person]="person"
+                  (removeOneFromPersons)="removeOneFromPersons($event)"
+                ></person-root>
+              </li>
+            </ul>
+          </div>
         </div>
-      </ng-template></div
-  ></ng-template>
+        <ng-template #listIsEmpty><Strong>List is empty</Strong></ng-template>
+      </ng-template>
+    </div></ng-template
+  >
 </div>
